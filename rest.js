@@ -12,8 +12,8 @@ $.model({
         })()), tpls = [];
         self.server = {
             _: function(data, cb, type, db, coll){
-                var urls = [this.api || '', db||this.db, coll||this.coll]
-                self.trigger('call', data, cb, type, db, coll))
+                var urls = [self.api || '', db||self.db, coll||self.coll]
+                self.trigger('start', data, cb, type, db, coll))
                 $.ajax({
                     url: urls.join('/') + (type == 'DELETE' ? '?' + $.param(data) : ''),
                     type: type || 'GET', data: data,
@@ -95,4 +95,3 @@ $.model({
         }
     }
 })
-
