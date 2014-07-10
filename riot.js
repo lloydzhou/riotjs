@@ -82,7 +82,7 @@ $.render = function(tmpl, data, escape_fn) {
     tmpl.replace(/[\\\n\r']/g, function(char) {
       return template_escape[char];
 
-    }).replace(/{\s*([\w\.]+)\s*}/g, "'+(function(){try{return e?e(_.$1):_.$1}catch(e){return ''}})()+'") + "'"
+    }).replace(/{\s*([\w\.\$]+)\s*}/g, "'+(function(){try{return e?e(_.$1):_.$1}catch(e){return ''}})()+'") + "'"
 
   ))(data, escape_fn);
 
